@@ -10,7 +10,7 @@ def scrap_middle_name(file):
     Getting folder name from the splitted file_name
     If the file_name is data_FXVOL_20130612.xml, then the folder name returned will be 'FXVOL'
     """
-    if file.startswith('data_') and file.endswith('.xml'):
+    if file.startswith('data_') and file.endswith('.xml') and file.count('_') == 2:
         split_name = file.split('_')
         return split_name[1]
 
@@ -19,7 +19,7 @@ def scrap_last_name(file):
     Getting folder name from the splitted file_name
     If the file_name is data_FXVOL_20130612.xml, then the folder name returned will be '201306'
     """
-    if file.startswith('data_') and file.endswith('.xml'):
+    if file.startswith('data_') and file.endswith('.xml') and file.count('_') == 2:
         split_name = file.split('_')
         return split_name[2][0:6]
 
@@ -46,7 +46,7 @@ def process_file(filename, kind, context_path):
 
 def is_valid_file(filename):
     full_path = os.path.abspath(filename)
-    if os.path.isfile(full_path) and fnmatch.fnmatch(filename, 'data_*.xml'):
+    if os.path.isfile(full_path) and fnmatch.fnmatch(filename, VALID_FILE_NAME):
         return True
     return False
 
@@ -58,7 +58,7 @@ def group_by_filename(dir, kind):
             context_path = dir  + filename
         else:
             context_path = dir
-        if fnmatch.fnmatch(filename, 'data_*.xml'):
+        if fnmatch.fnmatch(filename, VALID_FILE_NAME):
             process_file(filename, kind, context_path)
 
 def main(arguments):
@@ -75,6 +75,7 @@ if curr_ver >= (3,2):
 else:
     prompt = raw_input
 
+VALID_FILE_NAME = 'data_*_*.xml'
 if __name__ == "__main__":
     logging.basicConfig(format='%(asctime)s %(message)s',filename='groupby.log',level=logging.INFO)
     main(sys.argv[1:])
