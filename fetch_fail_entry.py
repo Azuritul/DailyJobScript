@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 NORMAL_LOG_SIZE = 455
-__author__ = 'yungchou.wu'
+__author__ = 'Azuritul Wu'
 
 import os
 import sys
