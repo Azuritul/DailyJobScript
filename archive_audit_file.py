@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import os
-import sys
 
 __author__ = 'Azuritul Wu'
 
