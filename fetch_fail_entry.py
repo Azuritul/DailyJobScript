@@ -19,8 +19,11 @@ else:
 log_dir = prompt("Please input log dir: ")
 
 logging.info("Starting")
+print("Starting...")
+
 def process_input_dir(input_dir):
     input_dir = input_dir.strip()
+    print("Process input folder: " + input_dir)
     if input_dir == '':
         input_dir = os.curdir
     return input_dir
@@ -34,5 +37,6 @@ for file in file_list:
     if size != NORMAL_LOG_SIZE and file != 'possible_fail_entry.log' and file.endswith('.log'):
         logging.error(file + " with skeptical file size: " + str(size))
 
+print("Finished...")
 logging.info("Finished.")
 

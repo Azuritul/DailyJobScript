@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 __author__ = 'Azuritul Wu'
 import fnmatch
 import os
