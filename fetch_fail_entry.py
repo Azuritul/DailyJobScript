@@ -6,6 +6,12 @@ import os
 import sys
 import logging
 
+"""
+    Compare the size of files in directory from user input against NORMAL_LOG_SIZE.
+    There might be problems if the two doesn't match.
+    Output the mismatched file in possible_fail_entry.log
+"""
+
 logging.basicConfig(format='%(asctime)s %(message)s', filename='possible_fail_entry.log', level=logging.INFO)
 
 curr_ver = sys.version_info
