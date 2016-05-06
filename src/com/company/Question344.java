@@ -21,11 +21,11 @@ public class Question344 {
         System.out.println(reverseString(target)); //should be "metsys"
     }
 
-    public static String reverseString(String original){
+    public static String reverseString(String original) {
         int swapCount = original.length() / 2;
         char[] arr = original.toCharArray();
         int backIndex = original.length() - 1;
-        for(int i = 0; i < swapCount; i++) {
+        for (int i = 0; i < swapCount; i++) {
             swap(arr, i, backIndex);
             backIndex--;
         }
@@ -41,7 +41,7 @@ public class Question344 {
         return builder.toString();
     }
 
-    public static char[] swap(char[] original, int front, int back){
+    public static char[] swap(char[] original, int front, int back) {
         char temp = original[front];
         original[front] = original[back];
         original[back] = temp;
