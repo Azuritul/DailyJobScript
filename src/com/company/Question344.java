@@ -10,18 +10,7 @@ package com.company;
 */
 public class Question344 {
 
-    public static void main(String[] args) {
-        String target = "hello";
-        System.out.println(reverseString(target)); //should be "olleh"
-
-        target = "welcome";
-        System.out.println(reverseString(target)); //should be "emoclew"
-
-        target = "system";
-        System.out.println(reverseString(target)); //should be "metsys"
-    }
-
-    private static String reverseString(String original) {
+    public String reverseString(String original) {
         int swapCount = original.length() / 2;
         char[] arr = original.toCharArray();
         int backIndex = original.length() - 1;
@@ -33,7 +22,7 @@ public class Question344 {
         return printArrayToString(arr);
     }
 
-    private static String printArrayToString(char[] array) {
+    private String printArrayToString(char[] array) {
         StringBuilder builder = new StringBuilder();
         for (char c : array) {
             builder.append(c);
@@ -41,7 +30,7 @@ public class Question344 {
         return builder.toString();
     }
 
-    private static char[] swap(char[] original, int front, int back) {
+    private char[] swap(char[] original, int front, int back) {
         char temp = original[front];
         original[front] = original[back];
         original[back] = temp;
